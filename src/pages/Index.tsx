@@ -77,6 +77,12 @@ export default function Index() {
           />
         </div>
       </main>
+
+      <aside className="box-border flex w-80 flex-col items-center justify-center shrink-0 bg-[#080A0B] m-0 px-6 py-10 max-md:w-full max-md:p-5 max-sm:gap-6 max-sm:p-4">
+        <span className="text-white text-lg font-normal leading-[28.8px] max-sm:text-base max-sm:leading-6">
+          탐색 요소 검토 중
+        </span>
+      </aside>
     </div>
   );
 }
