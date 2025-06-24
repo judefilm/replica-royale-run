@@ -4,7 +4,6 @@ import { Sidebar } from '@/components/dashboard/Sidebar';
 import { SearchBox } from '@/components/dashboard/SearchBox';
 import { FAQSection } from '@/components/dashboard/FAQSection';
 import { SymbolList } from '@/components/dashboard/SymbolList';
-import { KeywordPrompts } from '@/components/dashboard/KeywordPrompts';
 
 export default function Index() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -62,27 +61,22 @@ export default function Index() {
         onQuestionClick={handleQuestionClick}
       />
       
-      <div className="box-border flex flex-col flex-[1_0_0] self-stretch bg-[#080A0B] m-0 p-0">
-        <main className="box-border flex flex-col items-center gap-10 flex-[1_0_0] bg-[#080A0B] m-0 pt-10 pb-0 px-10 rounded-lg max-md:p-5 max-sm:gap-6 max-sm:p-4">
-          <div className="box-border flex w-[776px] flex-col items-start gap-10 m-0 p-0 max-md:w-full">
-            <SearchBox
-              initialQuery={searchQuery || "팔란티어 실적 어떻게 나왔어?"}
-              onSearch={handleSearch}
-              onWebSearch={handleWebSearch}
-            />
-            
-            <FAQSection onFAQClick={handleFAQClick} />
-            
-            <SymbolList onStockClick={handleStockClick} />
-          </div>
-        </main>
-        
-        <aside className="box-border text-white text-lg font-normal leading-[28.8px] self-stretch bg-[#101317] m-0 p-6 max-md:p-5 max-sm:text-base max-sm:leading-6 max-sm:p-4">
-          <div className="box-border flex items-start gap-6 self-stretch m-0 p-0 max-md:flex-col">
-            <KeywordPrompts onKeywordClick={handleKeywordClick} />
-          </div>
-        </aside>
-      </div>
+      <main className="box-border flex flex-col items-center gap-10 flex-[1_0_0] self-stretch bg-[#080A0B] m-0 pt-10 pb-10 px-10 rounded-lg max-md:p-5 max-sm:gap-6 max-sm:p-4">
+        <div className="box-border flex w-[776px] flex-col items-start gap-10 m-0 p-0 max-md:w-full">
+          <SearchBox
+            initialQuery={searchQuery || "팔란티어 실적 어떻게 나왔어?"}
+            onSearch={handleSearch}
+            onWebSearch={handleWebSearch}
+          />
+          
+          <FAQSection onFAQClick={handleFAQClick} />
+          
+          <SymbolList 
+            onStockClick={handleStockClick} 
+            onKeywordClick={handleKeywordClick}
+          />
+        </div>
+      </main>
     </div>
   );
 }

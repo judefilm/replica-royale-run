@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react';
 import { StockCard } from './StockCard';
+import { KeywordPrompts } from './KeywordPrompts';
 
 interface Stock {
   id: string;
@@ -12,6 +14,7 @@ interface Stock {
 
 interface SymbolListProps {
   onStockClick?: (stock: Stock) => void;
+  onKeywordClick?: (keyword: string) => void;
 }
 
 const stocks: Stock[] = [
@@ -97,7 +100,7 @@ const stocks: Stock[] = [
   }
 ];
 
-export const SymbolList: React.FC<SymbolListProps> = ({ onStockClick }) => {
+export const SymbolList: React.FC<SymbolListProps> = ({ onStockClick, onKeywordClick }) => {
   const [activeTab, setActiveTab] = useState<'interests' | 'popular'>('interests');
   const [activeCategory, setActiveCategory] = useState<'stock' | 'etf' | 'economic'>('stock');
 
@@ -193,6 +196,9 @@ export const SymbolList: React.FC<SymbolListProps> = ({ onStockClick }) => {
               onClick={() => onStockClick?.(stock)}
             />
           ))}
+        </div>
+        <div className="box-border flex w-[300px] shrink-0 m-0 p-0 max-md:w-full">
+          <KeywordPrompts onKeywordClick={onKeywordClick} />
         </div>
       </div>
     </section>
